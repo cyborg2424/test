@@ -12,8 +12,8 @@ def calculate_time(func):
 
 
 @calculate_time
-def test_time():
+def total_time():
     time.sleep(5)
 
 
-test_time()
+total_time()

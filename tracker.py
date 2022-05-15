@@ -1,18 +1,16 @@
 def func_counter(func):
-
-    def wrapper(*args):
+    def wrapper(*args, **kwargs):
         wrapper.counter += 1
-        func(*args)
+        return func(*args, **kwargs)
     wrapper.counter = 0
     return wrapper
 
-
 @func_counter
-def foo(y):
-    return y+2**3-34
+def test():
+    print("tracker")
 
+for i in range(0,5):
+    test()
 
-foo(1)
-foo(1)
-
-print(foo.counter)
+Count = test.counter
+print(Count)

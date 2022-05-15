@@ -1,15 +1,13 @@
 from collections import Counter
 
-data = open("documents.txt", "r", encoding="utf8")
-data_text = data.read()
+def document_analyzer():
+    freq = Counter()
+    with open('document.txt') as file:
+        for line in file:
+            freq.update(line.split())
+    mFreq = sorted(freq.most_common(5), key = lambda x: (-x[1], x[0]))
+    print('\r')
+    for (word, count) in mFreq:
+        print(f'{word:{count}}')
 
-split = data_text.split()
-test_dict = {}
-for i in split:
-    if i not in test_dict:
-        test_dict[i] = 1
-    else:
-        test_dict[i] += 1
-
-test_dict = sorted(test_dict.items(), key = lambda x: x[1])
-test_dict.reverse()
+document_analyzer()
